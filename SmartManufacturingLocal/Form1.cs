@@ -1000,10 +1000,10 @@ namespace SmartManufacturingLocal_HIP_PLC
                             }
                             try
                             {
-                                byte[] byte1 = plc.ReadBytes(DataType.DataBlock, 4, 0, 84);
+                                byte[] byte1 = plc.ReadBytes(DataType.DataBlock, 4, 0, 260);
                                 uint[] result1 = DWord.ToArray(byte1);
 
-                                for (int i = 0; i < 21; i++)
+                                for (int i = 0; i < 65; i++)
                                 {
                                     if (i != 0)
                                     {
