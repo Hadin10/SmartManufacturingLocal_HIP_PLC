@@ -78,15 +78,15 @@ namespace SmartManufacturingLocal_HIP_PLC
                         File.AppendAllText(fileName, System.DateTime.Now.ToString() + "\n");
                         if (!token.IsCancellationRequested)
                         {
-                            System.DateTime Start_Time = System.DateTime.Now;
+                            //System.DateTime Start_Time = System.DateTime.Now;
                             await Task.Run(() => LongRunningTask(progress, token));
 
-                            System.DateTime End_Time = System.DateTime.Now;
-                            if ((End_Time - Start_Time).TotalSeconds < 305)
-                            {
-                                double Delay_Time = 305 - (End_Time - Start_Time).TotalSeconds;
-                                await Task.Delay((int)Delay_Time * 1000);
-                            }
+                            //System.DateTime End_Time = System.DateTime.Now;
+                            //if ((End_Time - Start_Time).TotalSeconds < 305)
+                            //{
+                            //    double Delay_Time = 305 - (End_Time - Start_Time).TotalSeconds;
+                            //    await Task.Delay((int)Delay_Time * 1000);
+                            //}
                             notify.Text = "Updated On: " + System.DateTime.Now.ToString();                            
                         }
                         else
@@ -129,7 +129,22 @@ namespace SmartManufacturingLocal_HIP_PLC
                         {
                             if (!plc.IsConnected)
                             {
-                                plc.Open();
+                                var openTask = Task.Run(() =>
+                                {
+                                    try
+                                    {
+                                        plc.Open();
+                                    }
+                                    catch (Exception ex)
+                                    {
+
+                                    }
+                                });
+                                bool connected = openTask.Wait(2000);
+                                if (!connected)
+                                {
+                                    throw new Exception();
+                                }
                             }
 
                             try
@@ -408,7 +423,22 @@ namespace SmartManufacturingLocal_HIP_PLC
                         {
                             if (!plc.IsConnected)
                             {
-                                plc.Open();
+                                var openTask = Task.Run(() =>
+                                {
+                                    try
+                                    {
+                                        plc.Open();
+                                    }
+                                    catch (Exception ex)
+                                    {
+
+                                    }
+                                });
+                                bool connected = openTask.Wait(2000);
+                                if (!connected)
+                                {
+                                    throw new Exception();
+                                }
                             }
                             try
                             {
@@ -542,7 +572,22 @@ namespace SmartManufacturingLocal_HIP_PLC
                         {
                             if (!plc.IsConnected)
                             {
-                                plc.Open();
+                                var openTask = Task.Run(() =>
+                                {
+                                    try
+                                    {
+                                        plc.Open();
+                                    }
+                                    catch (Exception ex)
+                                    {
+
+                                    }
+                                });
+                                bool connected = openTask.Wait(2000);
+                                if (!connected)
+                                {
+                                    throw new Exception();
+                                }
                             }
                             try
                             {
@@ -613,7 +658,22 @@ namespace SmartManufacturingLocal_HIP_PLC
                         {
                             if (!plc.IsConnected)
                             {
-                                plc.Open();
+                                var openTask = Task.Run(() =>
+                                {
+                                    try
+                                    {
+                                        plc.Open();
+                                    }
+                                    catch (Exception ex)
+                                    {
+
+                                    }
+                                });
+                                bool connected = openTask.Wait(2000);
+                                if (!connected)
+                                {
+                                    throw new Exception();
+                                }
                             }
                             try
                             {
@@ -668,7 +728,22 @@ namespace SmartManufacturingLocal_HIP_PLC
                         {
                             if (!plc.IsConnected)
                             {
-                                plc.Open();
+                                var openTask = Task.Run(() =>
+                                {
+                                    try
+                                    {
+                                        plc.Open();
+                                    }
+                                    catch (Exception ex)
+                                    {
+
+                                    }
+                                });
+                                bool connected = openTask.Wait(2000);
+                                if (!connected)
+                                {
+                                    throw new Exception();
+                                }
                             }
                             try
                             {
@@ -735,7 +810,22 @@ namespace SmartManufacturingLocal_HIP_PLC
                         {
                             if (!plc.IsConnected)
                             {
-                                plc.Open();
+                                var openTask = Task.Run(() =>
+                                {
+                                    try
+                                    {
+                                        plc.Open();
+                                    }
+                                    catch (Exception ex)
+                                    {
+
+                                    }
+                                });
+                                bool connected = openTask.Wait(2000);
+                                if (!connected)
+                                {
+                                    throw new Exception();
+                                }
                             }
                             try
                             {
@@ -785,7 +875,22 @@ namespace SmartManufacturingLocal_HIP_PLC
                         {
                             if (!plc.IsConnected)
                             {
-                                plc.Open();
+                                var openTask = Task.Run(() =>
+                                {
+                                    try
+                                    {
+                                        plc.Open();
+                                    }
+                                    catch (Exception ex)
+                                    {
+
+                                    }
+                                });
+                                bool connected = openTask.Wait(2000);
+                                if (!connected)
+                                {
+                                    throw new Exception();
+                                }
                             }
                             try
                             {
@@ -834,7 +939,22 @@ namespace SmartManufacturingLocal_HIP_PLC
                         {
                             if (!plc.IsConnected)
                             {
-                                plc.Open();
+                                var openTask = Task.Run(() =>
+                                {
+                                    try
+                                    {
+                                        plc.Open();
+                                    }
+                                    catch (Exception ex)
+                                    {
+
+                                    }
+                                });
+                                bool connected = openTask.Wait(2000);
+                                if (!connected)
+                                {
+                                    throw new Exception();
+                                }
                             }
                             try
                             {
@@ -884,7 +1004,22 @@ namespace SmartManufacturingLocal_HIP_PLC
                         {
                             if (!plc.IsConnected)
                             {
-                                plc.Open();
+                                var openTask = Task.Run(() =>
+                                {
+                                    try
+                                    {
+                                        plc.Open();
+                                    }
+                                    catch (Exception ex)
+                                    {
+
+                                    }
+                                });
+                                bool connected = openTask.Wait(2000);
+                                if (!connected)
+                                {
+                                    throw new Exception();
+                                }
                             }
                             try
                             {
@@ -940,7 +1075,22 @@ namespace SmartManufacturingLocal_HIP_PLC
                         {
                             if (!plc.IsConnected)
                             {
-                                plc.Open();
+                                var openTask = Task.Run(() =>
+                                {
+                                    try
+                                    {
+                                        plc.Open();
+                                    }
+                                    catch (Exception ex)
+                                    {
+
+                                    }
+                                });
+                                bool connected = openTask.Wait(2000);
+                                if (!connected)
+                                {
+                                    throw new Exception();
+                                }
                             }
                             try
                             {
@@ -996,7 +1146,22 @@ namespace SmartManufacturingLocal_HIP_PLC
                         {
                             if (!plc.IsConnected)
                             {
-                                plc.Open();
+                                var openTask = Task.Run(() =>
+                                {
+                                    try
+                                    {
+                                        plc.Open();
+                                    }
+                                    catch (Exception ex)
+                                    {
+
+                                    }
+                                });
+                                bool connected = openTask.Wait(2000);
+                                if (!connected)
+                                {
+                                    throw new Exception();
+                                }
                             }
                             try
                             {
@@ -1052,7 +1217,22 @@ namespace SmartManufacturingLocal_HIP_PLC
                         {
                             if (!plc.IsConnected)
                             {
-                                plc.Open();
+                                var openTask = Task.Run(() =>
+                                {
+                                    try
+                                    {
+                                        plc.Open();
+                                    }
+                                    catch (Exception ex)
+                                    {
+
+                                    }
+                                });
+                                bool connected = openTask.Wait(2000);
+                                if (!connected)
+                                {
+                                    throw new Exception();
+                                }
                             }
                             try
                             {
@@ -1108,7 +1288,22 @@ namespace SmartManufacturingLocal_HIP_PLC
                         {
                             if (!plc.IsConnected)
                             {
-                                plc.Open();
+                                var openTask = Task.Run(() =>
+                                {
+                                    try
+                                    {
+                                        plc.Open();
+                                    }
+                                    catch (Exception ex)
+                                    {
+
+                                    }
+                                });
+                                bool connected = openTask.Wait(2000);
+                                if (!connected)
+                                {
+                                    throw new Exception();
+                                }
                             }
                             try
                             {
@@ -1187,7 +1382,22 @@ namespace SmartManufacturingLocal_HIP_PLC
                         {
                             if (!plc.IsConnected)
                             {
-                                plc.Open();
+                                var openTask = Task.Run(() =>
+                                {
+                                    try
+                                    {
+                                        plc.Open();
+                                    }
+                                    catch (Exception ex)
+                                    {
+
+                                    }
+                                });
+                                bool connected = openTask.Wait(2000);
+                                if (!connected)
+                                {
+                                    throw new Exception();
+                                }
                             }
                             try
                             {
@@ -1243,7 +1453,22 @@ namespace SmartManufacturingLocal_HIP_PLC
                         {
                             if (!plc.IsConnected)
                             {
-                                plc.Open();
+                                var openTask = Task.Run(() =>
+                                {
+                                    try
+                                    {
+                                        plc.Open();
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        
+                                    }
+                                });
+                                bool connected = openTask.Wait(2000);
+                                if (!connected)
+                                {
+                                    throw new Exception();
+                                }
                             }
                             try
                             {
@@ -1336,7 +1561,7 @@ namespace SmartManufacturingLocal_HIP_PLC
                         }
                         catch (Exception)
                         {
-                            Console.WriteLine(plc);
+                            Console.WriteLine(plcIp);
                         }
                     }
                 }
@@ -1410,14 +1635,14 @@ namespace SmartManufacturingLocal_HIP_PLC
                                 {
                                     string value1 = item.TotalCount[0].ToString();
                                     string value2 = item.TotalCount[1].ToString();
-                                    //uri = @"https://localhost:44344/api/ProductionAPI/machinedatawithruntime?api-version=1&" + "MachineID=" + item.MachineID.ToString() + "&TotalCountList[0]=" + value1 + "&TotalCountList[1]=" + value2 + "&Break=false&Sched=false";
-                                    uri = @"http://172.17.2.117:5003/api/ProductionAPI/machinedatawithruntime?api-version=1&" + "MachineID=" + item.MachineID.ToString() + "&TotalCountList[0]=" + value1 + "&TotalCountList[1]=" + value2 + "&Break=false&Sched=false";
+                                    //uri = @"https://localhost:44344/api/ProductionAPI/machinedatawithruntime_test?api-version=1&" + "MachineID=" + item.MachineID.ToString() + "&TotalCountList[0]=" + value1 + "&TotalCountList[1]=" + value2 + "&Break=false&Sched=false";
+                                    uri = @"http://172.17.2.117:5003/api/ProductionAPI/machinedatawithruntime_test?api-version=1&" + "MachineID=" + item.MachineID.ToString() + "&TotalCountList[0]=" + value1 + "&TotalCountList[1]=" + value2 + "&Break=false&Sched=false";
 
                                 }
                                 else
                                 {
-                                    //uri = @"https://localhost:44344/api/ProductionAPI/machinedata?api-version=1&" + "MachineID=" + item.MachineID.ToString() + "&TotalCountList[0]=" + item.TotalCount[0].ToString() + "&Break=false&Sched=false";
-                                    uri = @"http://172.17.2.117:5003/api/ProductionAPI/machinedata?api-version=1&" + "MachineID=" + item.MachineID.ToString() + "&TotalCountList[0]=" + item.TotalCount[0].ToString() + "&Break=false&Sched=false";
+                                    //uri = @"https://localhost:44344/api/ProductionAPI/machinedata_test?api-version=1&" + "MachineID=" + item.MachineID.ToString() + "&TotalCountList[0]=" + item.TotalCount[0].ToString() + "&Break=false&Sched=false";
+                                    uri = @"http://172.17.2.117:5003/api/ProductionAPI/machinedata_test?api-version=1&" + "MachineID=" + item.MachineID.ToString() + "&TotalCountList[0]=" + item.TotalCount[0].ToString() + "&Break=false&Sched=false";
                                 }
                                 var client = new RestClient(uri);
                                 client.Timeout = -1;
