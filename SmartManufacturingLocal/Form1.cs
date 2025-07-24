@@ -78,15 +78,15 @@ namespace SmartManufacturingLocal_HIP_PLC
                         File.AppendAllText(fileName, System.DateTime.Now.ToString() + "\n");
                         if (!token.IsCancellationRequested)
                         {
-                            //System.DateTime Start_Time = System.DateTime.Now;
+                            System.DateTime Start_Time = System.DateTime.Now;
                             await Task.Run(() => LongRunningTask(progress, token));
 
-                            //System.DateTime End_Time = System.DateTime.Now;
-                            //if ((End_Time - Start_Time).TotalSeconds < 305)
-                            //{
-                            //    double Delay_Time = 305 - (End_Time - Start_Time).TotalSeconds;
-                            //    await Task.Delay((int)Delay_Time * 1000);
-                            //}
+                            System.DateTime End_Time = System.DateTime.Now;
+                            if ((End_Time - Start_Time).TotalSeconds < 120)
+                            {
+                                double Delay_Time = 120 - (End_Time - Start_Time).TotalSeconds;
+                                await Task.Delay((int)Delay_Time * 1000);
+                            }
                             notify.Text = "Updated On: " + System.DateTime.Now.ToString();                            
                         }
                         else
